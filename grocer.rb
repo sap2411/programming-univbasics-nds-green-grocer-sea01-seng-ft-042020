@@ -64,11 +64,11 @@ end
 def checkout(cart, coupons)
     consolidated_cart = consolidate_cart(cart)
     coupon_applied_cart = apply_coupons(consolidated_cart, coupons)
-    clearance_applied_cart = apply_clearance(coupon_applied_cart)
+    sub_cart = apply_clearance(coupon_applied_cart)
    total = 0 
    d = 0 
-   while d < clearance_applied_cart.count
-     grocery3 = clearance_applied_cart[d]
+   while d < sub_cart.count
+     grocery3 = sub_cart[d]
      grocery3[:price].round(2)
      sum = grocery3[:price] * grocery3[:count]
      total +=sum.round(2)
