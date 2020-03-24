@@ -41,7 +41,7 @@ def apply_coupons(cart, coupons)
           :price => itemHasACoupon[:cost] / itemHasACoupon[:num],
           :clearance => grocery1[:clearance],
           :count => itemHasACoupon[:num] * (grocery1[:count] / itemHasACoupon[:num])
-        }
+       }
       cart << appliedGrocery
       grocery1[:count] -= appliedGrocery[:count]
     end
