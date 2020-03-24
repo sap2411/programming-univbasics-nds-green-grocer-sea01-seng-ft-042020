@@ -12,13 +12,13 @@ end
 answer
 end
 
-def consolidate_cart(cart) #combines like items from a 'cart', adds a 'count' of that item, and puts it in a new consolidated Cart
-  consolidatedCart = [] #create our new cart which is currently empty
-  item = 0 #this is the item we are selecting from the old cart, lets start with the first (which is zero)
-  while item < cart.count #run the code below until it ends (we run out of items from the old cart) (in that case go to line 34)
-    grocery = cart[item] #lets assigne the shortcut 'grocery' to the 'item' we're currently holding from the old cart
-    name = cart[item][:item] #lets retrieve the coded :item-name of that 'grocery' and give it a shortcut 'name'
-    itemAlreadyInCart = find_item_by_name_in_collection(name, consolidatedCart) #a shortcut searching the new cart for the item
+def consolidate_cart(cart)
+  consolidatedCart = [] 
+  item = 0 
+  while item < cart.count 
+    grocery = cart[item] 
+    name = cart[item][:item] 
+    itemAlreadyInCart = find_item_by_name_in_collection(name, consolidatedCart) 
       if !itemAlreadyInCart #do the next 3 lines of code, "if" its "not true (= !)" the "item is already in the cart", else go to 30
         grocery[:count] = 0 #that means its the '1st' of that 'item/grocery' from the old 'cart', we need to add that to a 'count'.
         consolidatedCart << grocery #and add that new item/grocery to the new cart
