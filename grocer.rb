@@ -65,7 +65,6 @@ def checkout(cart, coupons)
     consolidated_cart = consolidate_cart(cart)
     coupon_applied_cart = apply_coupons(consolidated_cart, coupons)
     clearance_applied_cart = apply_clearance(coupon_applied_cart)
-   total = 0 
    d = 0 
    while d < clearance_applied_cart.count
      grocery3 = clearance_applied_cart[d]
