@@ -9,7 +9,6 @@ def find_item_by_name_in_collection(name, collection)
      g+=1
   end
 end
-g
 answer
   # Implement me first!
   #
