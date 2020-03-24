@@ -67,12 +67,12 @@ def apply_clearance(cart)
   while b < cart.count
   clearance = cart[b][:clearance]
   grocery2 = cart[b]
-   if clearance == true
+   if clearance
       n = grocery2[:price] * 0.80
       grocery2[:price] = n
      grocery2[:price].round(2)
      b += 1
-   else clearance == false
+   else !clearance
      grocery2[:price].round(2)
      b += 1
    end
