@@ -35,7 +35,6 @@ def apply_coupons(cart, coupons)
     appliedGrocery = {}
     itemHasACoupon = find_item_by_name_in_collection(grocery1[:item], coupons)
     if itemHasACoupon
-      remainder = grocery1[:count] % itemHasACoupon[:num]
       appliedGrocery = {
           :item => itemHasACoupon[:item] + " W/COUPON",
           :price => itemHasACoupon[:cost] / itemHasACoupon[:num],
