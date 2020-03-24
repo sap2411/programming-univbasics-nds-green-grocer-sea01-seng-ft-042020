@@ -22,8 +22,8 @@ def consolidate_cart(cart)
         grocery[:count] = 0 
         consolidatedCart << grocery 
       end
-        grocery[:count] += 1
-        item+=1
+    grocery[:count] += 1
+    item+=1
   end 
   consolidatedCart
 end 
@@ -31,17 +31,16 @@ end
 def apply_coupons(cart, coupons)
   t = 0 
   while t < cart.count
-    name1 = cart[t][:item]
     grocery1 = cart[t]
     appliedGrocery = {}
-    itemHasACoupon = find_item_by_name_in_collection(name1, coupons)
+    itemHasACoupon = find_item_by_name_in_collection(grocery1[:item], coupons)
     if itemHasACoupon
-      couponCost = itemHasACoupon[:cost] / itemHasACoupon[:num]
+      couponCost = 
       couponCount = itemHasACoupon[:num] * (grocery1[:count] / itemHasACoupon[:num])
       remainder = grocery1[:count] % itemHasACoupon[:num]
       appliedGrocery = {
           :item => itemHasACoupon[:item] + " W/COUPON",
-          :price => couponCost,
+          :price => itemHasACoupon[:cost] / itemHasACoupon[:num],
           :clearance => grocery1[:clearance],
           :count => couponCount
         }
