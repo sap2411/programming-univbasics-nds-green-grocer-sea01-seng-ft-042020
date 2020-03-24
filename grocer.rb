@@ -49,13 +49,13 @@ def apply_coupons(cart, coupons)
       couponCount = itemHasACoupon[:num] * (grocery1[:count] / itemHasACoupon[:num])
       remainder = grocery1[:count] % itemHasACoupon[:num]
       appliedGrocery = {
-          :item => itemHasACoupon[:item] + " W/COUPON", #itemHasACoupon
-          :price => couponCost, #couponCost
+          :item => itemHasACoupon[:item] + " W/COUPON",
+          :price => couponCost,
           :clearance => grocery1[:clearance],
-          :count => couponCount #couponCount
+          :count => couponCount
         }
       cart << appliedGrocery
-      grocery1[:count] -= (couponCount)
+      grocery1[:count] -= couponCount
     end
   t+=1 
   end
