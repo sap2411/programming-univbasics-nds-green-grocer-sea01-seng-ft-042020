@@ -29,18 +29,16 @@ end
 def apply_coupons(cart, coupons)
   t = 0 
   while t < cart.count
-    grocery1 = cart[t]
-    appliedGrocery = {}
-    itemHasACoupon = find_item_by_name_in_collection(grocery1[:item], coupons)
+    itemHasACoupon = find_item_by_name_in_collection(cart[t][:item], coupons)
     if itemHasACoupon
       appliedGrocery = {
           :item => itemHasACoupon[:item] + " W/COUPON",
           :price => itemHasACoupon[:cost] / itemHasACoupon[:num],
-          :clearance => grocery1[:clearance],
-          :count => itemHasACoupon[:num] * (grocery1[:count] / itemHasACoupon[:num])
+          :clearance => cart[t][:clearance],
+          :count => itemHasACoupon[:num] * (cart[t][:count] / itemHasACoupon[:num])
        }
       cart << appliedGrocery
-      grocery1[:count] -= appliedGrocery[:count]
+      cart[t][:count] -= appliedGrocery[:count]
     end
   t+=1 
   end
