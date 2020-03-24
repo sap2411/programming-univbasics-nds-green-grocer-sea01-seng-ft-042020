@@ -10,9 +10,6 @@ def find_item_by_name_in_collection(name, collection)
   end
 end
 answer
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
 end
 
 def consolidate_cart(cart) #combines like items from a 'cart', adds a 'count' of that item, and puts it in a new consolidated Cart
