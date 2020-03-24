@@ -50,8 +50,8 @@ def apply_clearance(cart)
   while b < cart.count
    if cart[b][:clearance]
      cart[b][:price] *= 0.80
-     cart[b][:price].round(2)
    end
+  cart[b][:price].round(2)
   b += 1
   end
 cart
@@ -64,9 +64,8 @@ def checkout(cart, coupons)
    total = 0 
    d = 0 
    while d < sub_cart.count
-     sub_cart[d][:price].round(2)
      sum = sub_cart[d][:price] * sub_cart[d][:count]
-     total +=sum.round(2)
+     total +=sum
      d +=1
    end
    if total >= 100
