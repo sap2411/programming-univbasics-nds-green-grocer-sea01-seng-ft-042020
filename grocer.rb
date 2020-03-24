@@ -68,9 +68,9 @@ def checkout(cart, coupons)
    total = 0 
    d = 0 
    while d < sub_cart.count
-     grocery3 = sub_cart[d]
-     grocery3[:price].round(2)
-     sum = grocery3[:price] * grocery3[:count]
+  
+     sub_cart[d][:price].round(2)
+     sum = sub_cart[d][:price] * sub_cart[d][:count]
      total +=sum.round(2)
      d +=1
    end
