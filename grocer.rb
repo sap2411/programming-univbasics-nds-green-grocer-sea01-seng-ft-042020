@@ -42,9 +42,7 @@ def apply_coupons(cart, coupons)
     grocery1 = cart[t]
     appliedGrocery = {}
     itemHasACoupon = find_item_by_name_in_collection(name1, coupons)
-    if !itemHasACoupon
-      #item doesn't have a coupon, so do nothing
-    else itemHasACoupon
+    if itemHasACoupon
       couponCost = itemHasACoupon[:cost] / itemHasACoupon[:num]
       couponCount = itemHasACoupon[:num] * (grocery1[:count] / itemHasACoupon[:num])
       remainder = grocery1[:count] % itemHasACoupon[:num]
