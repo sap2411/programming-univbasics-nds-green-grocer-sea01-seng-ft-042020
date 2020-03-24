@@ -19,7 +19,7 @@ end
 def consolidate_cart(cart) #combines like items from a 'cart', adds a 'count' of that item, and puts it in a new consolidated Cart
   consolidatedCart = [] #create our new cart which is currently empty
   item = 0 #this is the item we are selecting from the old cart, lets start with the first (which is zero)
-  while item < cart.count #run this next bit of code until we run out of items from the old cart (in that case go to line 34)
+  while item < cart.count #run the code below until we run out of items from the old cart (in that case go to line 34)
     grocery = cart[item] #lets assigne the shortcut 'grocery' to the item we're currently holding from the old cart
     name = cart[item][:item] #lets retrieve the coded :item-name of that grocery and give it a shortcut 'name'
     itemAlreadyInCart = find_item_by_name_in_collection(name, consolidatedCart) #a shortcut searching the new cart for the item
