@@ -26,7 +26,6 @@ def consolidate_cart(cart) #combines like items from a 'cart', adds a 'count' of
       if !itemAlreadyInCart #do the next 3 lines of code, "if" its "not true (= !)" the "item is already in the cart", else go to 30
         grocery[:count] = 0 #that means its the '1st' of that 'item/grocery' from the old 'cart', we need to add that to a 'count'.
         consolidatedCart << grocery #and add that new item/grocery to the new cart
-        item+=1 #now grab the next item in the old cart and go to line 33
       end #go to line 22 to see if this new item is already in our cart
       itemAlreadyInCart[:count] += 1
       item+=1
