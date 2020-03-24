@@ -17,12 +17,12 @@ def consolidate_cart(cart)
   item = 0 
   while item < cart.count 
     grocery = cart[item] 
-    itemAlreadyInCart = find_item_by_name_in_collection(grocery[:item], consolidatedCart) 
+    itemAlreadyInCart = find_item_by_name_in_collection(cart[item][:item], consolidatedCart) 
       if !itemAlreadyInCart 
-        grocery[:count] = 0 
-        consolidatedCart << grocery 
+        cart[item][:count] = 0 
+        consolidatedCart << cart[item]  
       end
-    grocery[:count] += 1
+    cart[item][:count] += 1
     item+=1
   end 
   consolidatedCart
@@ -62,13 +62,12 @@ cart
 end
 
 def checkout(cart, coupons)
-    consolidated_cart = consolidate_cart(cart)
-    coupon_applied_cart = apply_coupons(consolidated_cart, coupons)
-    sub_cart = apply_clearance(coupon_applied_cart)
+   consolidated_cart = consolidate_cart(cart)
+   coupon_applied_cart = apply_coupons(consolidated_cart, coupons)
+   sub_cart = apply_clearance(coupon_applied_cart)
    total = 0 
    d = 0 
    while d < sub_cart.count
-  
      sub_cart[d][:price].round(2)
      sum = sub_cart[d][:price] * sub_cart[d][:count]
      total +=sum.round(2)
@@ -78,14 +77,4 @@ def checkout(cart, coupons)
      total *= 0.9
    end
    total
-    
-  # Consult README for inputs and outputs
-  #
-  # This method should call
-  # * consolidate_cart
-  # * apply_coupons
-  # * apply_clearance
-  #
-  # BEFORE it begins the work of calculating the total (or else you might have
-  # some irritated customers
 end
