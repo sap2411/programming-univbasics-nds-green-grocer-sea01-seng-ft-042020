@@ -29,7 +29,7 @@ end
 def apply_coupons(cart, coupons)
   t = 0 
   while t < cart.count
-    grocery1 = cart[t]
+    grocery1 = 
     appliedGrocery = {}
     itemHasACoupon = find_item_by_name_in_collection(grocery1[:item], coupons)
     if itemHasACoupon
