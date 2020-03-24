@@ -24,13 +24,15 @@ def consolidate_cart(cart) #combines like items from a 'cart', adds a 'count' of
     name = cart[item][:item] #lets retrieve the coded :item-name of that 'grocery' and give it a shortcut 'name'
     itemAlreadyInCart = find_item_by_name_in_collection(name, consolidatedCart) #a shortcut searching the new cart for the item
       if !itemAlreadyInCart #do the next 3 lines of code, "if" its "not true (= !)" the "item is already in the cart", else go to 30
-        grocery[:count] = 1 #that means its the '1st' of that 'item/grocery' from the old 'cart', we need to add that to a 'count'.
+        grocery[:count] = 0 #that means its the '1st' of that 'item/grocery' from the old 'cart', we need to add that to a 'count'.
         consolidatedCart << grocery #and add that new item/grocery to the new cart
         item+=1 #now grab the next item in the old cart and go to line 33
       else #do the next 2 lines of code if the 'item is Already In the Cart'
-        itemAlreadyInCart[:count] += 1 #since we already put one of this grocery in the new cart, we just have to add 1 to its count
+         #since we already put one of this grocery in the new cart, we just have to add 1 to its count
         item+=1 #then select the next item in out old cart and go to line 33
       end #go to line 22 to see if this new item is already in our cart
+      itemAlreadyInCart[:count] += 1
+      item+=1
   end #if you are here, its because you have finished consolidating your Cart, go to the next line
   consolidatedCart #lets now display what our complete cart looks like and finish the task
 end #all done
