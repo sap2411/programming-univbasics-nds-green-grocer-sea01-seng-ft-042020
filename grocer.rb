@@ -16,8 +16,7 @@ def consolidate_cart(cart)
   consolidatedCart = [] 
   item = 0 
   while item < cart.count 
-    itemAlreadyInCart = find_item_by_name_in_collection(cart[item][:item], consolidatedCart) 
-      if !itemAlreadyInCart 
+      if !find_item_by_name_in_collection(cart[item][:item], consolidatedCart) 
         cart[item][:count] = 0 
         consolidatedCart << cart[item]  
       end
